@@ -16,11 +16,15 @@ class BULLCOWGAME_API UBullCowCartridge : public UCartridge
 	virtual void OnInput(const FString& Input) override;
 	void SetupGame();
 	void EndGame();
-	void ProcessGuess(FString Guess);
+	void ProcessGuess(const FString& Guess);
+	const bool IsIsogram(const FString& Guess);
+	const TArray<FString> GetValidHiddenWords();
 
 	// Your declarations go below!
 	private:
-	FString HiddenWord;
+	FString ValidWord;
 	int32 PlayerLives;
 	bool bGameOver;
+	TArray<FString> WordsList;
+	TArray<FString> Isograms;
 };
